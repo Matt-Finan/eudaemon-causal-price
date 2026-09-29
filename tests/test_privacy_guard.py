@@ -33,7 +33,8 @@ BLOCKED = [
     pytest.param(call("Write", file_path=r"C:\Users\someone\elsewhere.txt", content="x"),
                  marks=WINDOWS_ONLY),
     call("Write", file_path="/tmp/elsewhere.txt", content="x"),
-    call("Edit", file_path=LAKE + r"\sources.yaml", old_string="a", new_string="b"),
+    pytest.param(call("Edit", file_path=LAKE + r"\sources.yaml", old_string="a", new_string="b"),
+                 marks=WINDOWS_ONLY),
     call("Write", file_path=str(REPO / ".env"), content="X=1"),
 ]
 
