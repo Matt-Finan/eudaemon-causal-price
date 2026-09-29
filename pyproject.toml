@@ -1,0 +1,11 @@
+[project]
+name = "causal-price"
+version = "0.0.1"
+description = "Pricing T: the days it takes to turn a correlation in one person's record into a cause."
+requires-python = ">=3.12"
+license = "Apache-2.0"
+authors = [{ name = "Matt Finan" }]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "lake": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["-m", "causal_price.lake_server"]
+    }
+  }
+}

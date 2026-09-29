@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "deny": [
+      "Read(//d/DT data lakes/_registry/secrets/**)",
+      "Edit(//d/DT data lakes/_registry/secrets/**)",
+      "Read(//d/DT data lakes/bitwarden/**)",
+      "Edit(//d/DT data lakes/bitwarden/**)",
+      "Read(//d/DT data lakes/profiles/**)",
+      "Edit(//d/DT data lakes/profiles/**)",
+      "Read(**/.env)",
+      "Edit(**/.env)",
+      "Read(**/*.token)",
+      "Edit(**/*.token)"
+    ],
+    "allow": [
+      "Read(//d/DT data lakes/**)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          { "type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/privacy_guard.sh\"" }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          { "type": "command", "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/audit.sh\"" }
+        ]
+      }
+    ]
+  }
+}

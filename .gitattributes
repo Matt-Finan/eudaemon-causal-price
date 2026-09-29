@@ -1,0 +1,3 @@
+# Keep LF everywhere: a .sh hook checked out with CRLF breaks under bash,
+# and privacy_guard then fails closed and blocks every tool call.
+* text=auto eol=lf
